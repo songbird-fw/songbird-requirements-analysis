@@ -6,9 +6,13 @@
 3. Fortigate like interface management (es. list of vlan under interface)
 4. eBPF (instead of iptables) --> if Linux is used as OS
 5. DHCP and DNS
+6. Sick webui
+7. Atomic upgrades
+
 
 ## Nice to have
 1. YAML-based configuration (changes made via webgui are lost during reboot?) --> need to think about it because it may be easy to lose track of the configuration you made if the syntax is too complicate
 2. Immutable OS
 3. HA
 4. BGP (so you can use it with MetalLB)
+5. IDS/IPS (with third party tool like suricata or snort maybe?)
