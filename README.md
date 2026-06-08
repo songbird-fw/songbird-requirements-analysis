@@ -16,3 +16,4 @@
 3. HA
 4. BGP (so you can use it with MetalLB)
 5. IDS/IPS (with third party tool like suricata or snort maybe?)
+6. Very good monitoring and analysis tool built-in
