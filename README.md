@@ -50,22 +50,22 @@ Requirements priorities can be mandatory (Must have - M), desirable (Should have
 
 Requirements will be identified by R followed by the scope (U, G), then by the type (F, N), then by the priority (M, S, C, W), then by a numeric index (1, 1.1)
 
-## Must have
-1. Basic router/firewall function
-2. Fortigate like policy management (Source and Destination Interface)
-3. Fortigate like interface management (es. list of vlan under interface)
-4. eBPF (instead of iptables) --> if Linux is used as OS
-5. DHCP and DNS
-6. Atomic upgrades
+## Requirements Table (Sorted by Progressive Index)
 
-## Should have
-1. YAML-based configuration
-1.1 DevOps mode: changes in the UI prompt for a code commit to a repo
-2. Sick webui
-
-## Could have
-1. Immutable OS
-2. HA
-3. BGP (so you can use it with MetalLB)
-4. IDS/IPS (with third party tool like suricata or snort maybe?)
-5. Very good monitoring and analysis tool built-in
+| Requirement ID | Scope | Type | Priority | Quality Characteristic (Q) | Requirement Description (Atomic & Verifiable) |
+| :--- | :---: | :---: | :---: | :--- | :--- |
+| **RGFM1** | G | F | M | - | The system must execute static routing of IPv4/IPv6 packets between distinct logical and physical interfaces. |
+| **RGFM1.1** | G | F | M | - | The system must support address translation via Source NAT (Masquerading) and Destination NAT (Port Forwarding). |
+| **RUFM2** | U | F | M | Flexibility | The user interface must allow the creation of security policies (policy management) based on the combination of Source Interface and Destination Interface. |
+| **RUFM3** | U | F | M | - | The network management interface must display a hierarchical tree structure, listing 802.1Q VLAN sub-interfaces nested under their respective physical interfaces. |
+| **RGFM4** | G | F | M | Efficiency / Performance | The packet filtering and forwarding pipeline (Data Plane) must be implemented entirely via eBPF programs loaded into the Linux kernel, completely bypassing the iptables/nftables subsystem. |
+| **RGFM5** | G | F | M | Interoperability | The system must integrate an internal DHCP server for the dynamic allocation of IP addresses and network parameters across configured LAN segments. |
+| **RGFM6** | G | F | M | Interoperability | The system must integrate a local DNS server/forwarder for name resolution of internal clients. |
+| **RGNM7** | G | N | M | Reliability / Integrity | Operating system and firewall application updates must be atomic (A/B system update), ensuring an automatic and transparent rollback to the previous state in case of a boot failure. |
+| **RGFS8** | G | F | S | Maintainability | The entire state and configuration of the firewall must be fully defined, importable, and exportable via structured YAML files. |
+| **RUFS9** | U | F | S | Interoperability / Flexibility | Every configuration change saved by the user via the Web UI must automatically trigger a structured Git commit and push to a designated remote repository (DevOps/GitOps mode). |
+| **RGNM10** | G | N | C | Portability / Integrity | The underlying operating system must adopt an immutable architecture with the root file system (`/`) mounted as read-only, except for directories dedicated to data persistence and system logs. |
+| **RGFC11** | G | F | C | Reliability | The system must support an Active-Passive High Availability (HA) configuration. |
+| **RGFC12** | G | F | C | Interoperability | The system must support the BGP dynamic routing protocol to allow route advertisement and native integration with external load balancers (e.g., MetalLB in Kubernetes environments). |
+| **RGFC13** | G | F | C | Security | The system must integrate a third-party IDS/IPS engine (e.g., Suricata or Snort) capable of intercepting passing traffic via eBPF hooks and blocking known threats based on updatable signature sets. |
+| **RUFC14** | U | F | C | Efficiency / Usability | The monitoring tool built into the Web UI must display real-time metric charts for analys and troubleshooting. |
