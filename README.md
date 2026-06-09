@@ -52,7 +52,7 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 
 ## Requirements Table (Sorted by Progressive Index)
 
-| Requirement ID | Scope | Type | Priority | Quality Characteristic (Q) | Requirement Description (Atomic & Verifiable) | Approved | 
+| Requirement ID | Scope | Type | Priority | Quality Characteristic | Requirement Description (Atomic & Verifiable) | Approved | 
 | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
 | **RGFM1** | G | F | M | - | The system must execute static routing of IPv4/IPv6 packets between distinct logical and physical interfaces. | - | 
 | **RGFM1.1** | G | F | M | - | The system must support address translation via Source NAT (Masquerading) and Destination NAT (Port Forwarding). | - | 
