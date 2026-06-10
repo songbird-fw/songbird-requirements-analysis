@@ -52,7 +52,7 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 
 ## Requirements Table (Sorted by Progressive Index)
  
-| Requirement ID | Scope | Type | Priority | Quality Characteristic | Requirement Description (Atomic & Verifiable) | Approved |
+| ID | Scope | Type | Priority | Quality Characteristic | Requirement Description (Atomic & Verifiable) | Approved |
 | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
 | **RGFM1** | G | F | M | - | The system must execute static routing of IPv4/IPv6 packets between distinct logical and physical interfaces. | - |
 | **RGFM1.1** | G | F | M | - | The system must support address translation via Source NAT (Masquerading) and Destination NAT (Port Forwarding). | - |
@@ -83,6 +83,8 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 | **RUFS9.3** | G | F | S | Security | The GitOps subsystem must support authentication with remote Git repositories (GitHub, GitLab, self-hosted) via SSH Private Keys or personal access tokens. | - |
 | **RGNM10** | G | N | C | Portability / Integrity | The underlying operating system must adopt an immutable architecture with the root file system (`/`) mounted as read-only, except for directories dedicated to data persistence and system logs. | - |
 | **RGFC11** | G | F | C | Reliability | The system must support an Active-Passive High Availability (HA) configuration. | - |
+| **RGFC11.1** | G | F | C | Reliability / Integrity | In an HA Active-Passive configuration, both nodes must reference the same remote Git repository; each node must independently pull and apply any configuration update within 60 seconds of a new commit being pushed to the designated branch. | - |
+| **RGFC11.2** | G | F | C | Reliability | The system must support the Virtual Router Redundancy Protocol (VRRP) to manage a shared virtual IP address, enabling automatic and transparent failover from the Active node to the Passive node within 3 seconds of Active node failure detection. | - |
 | **RGFC12** | G | F | C | Interoperability | The system must support the BGP dynamic routing protocol to allow route advertisement and native integration with external load balancers (e.g., MetalLB in Kubernetes environments). | - |
 | **RGFC13** | G | F | C | Security | The system must integrate a third-party IDS/IPS engine (e.g., Suricata or Snort) capable of intercepting passing traffic via eBPF hooks and blocking known threats based on updatable signature sets. | - |
 | **RUFC14** | U | F | C | Efficiency / Usability | The monitoring tool built into the Web UI must display real-time metric charts for analysis and troubleshooting. | - |
