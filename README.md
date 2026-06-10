@@ -67,7 +67,7 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 | **RGFM5** | G | F | M | Interoperability | The system must integrate an internal DHCP server for the dynamic allocation of IP addresses and network parameters across configured LAN segments. | - |
 | **RGFM5.1** | G | F | M | Interoperability | The internal DHCP server must allow lease duration configuration and static IP binding based on the client's MAC address. | - |
 | **RGFM5.2** | G | F | M | Reliability | The DHCP server must support simultaneous independent pools isolated per configured VLAN interface. | - |
-| **RGFM1.3** | G | F | M | Interoperability | The system must support DHCPv6 with prefix delegation (PD) to assign IPv6 prefixes to downstream LAN segments. | - |
+| **RGFM5.3** | G | F | M | Interoperability | The system must support DHCPv6 with prefix delegation (PD) to assign IPv6 prefixes to downstream LAN segments. | - |
 | **RGFM6** | G | F | M | Interoperability | The system must integrate a local DNS server/forwarder for name resolution of internal clients. | - |
 | **RGFM6.1** | G | F | M | Interoperability | The local DNS forwarder must intercept port 53 traffic on local segments, cache successful queries, and forward unresolved requests to upstream DNS servers defined in the configuration. | - |
 | **RGFM6.2** | G | F | M | Security | The local DNS server must support local hostname resolution mapping names defined in the static DHCP bindings table. | - |
