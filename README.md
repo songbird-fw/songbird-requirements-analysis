@@ -117,4 +117,5 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 | **RUFS19.1** | U | F | S | Usability | The Web UI must include a diagnostics page showing the real-time status of each internal subsystem, clearly indicating whether each component is *running*, *degraded*, or *stopped*. | - |
 | **RGFM20** | G | F | M | Security | In the absence of an explicit security rule matching a traffic flow, the system must apply a *default deny* policy, dropping the packet and recording the event in the traffic log. | - |
 | **RGFM20.1** | G | F | M | Reliability | In the event of an unexpected process crash or reboot, the system must automatically reload the last valid configuration state within 30 seconds, without manual intervention. | - |
- 
+| **RGFN21** | G | N | S | Reliability | Il sistema deve supportare il failover automatico dei server DNS upstream: se il server primario risponde con timeout per 3 tentativi consecutivi, il sistema deve passare automaticamente al server secondario. | - |
+| **RGFN21.1** | G | N | S | Reliability | Il failover DNS deve avvenire entro 5 secondi dal riconoscimento del timeout del server primario, senza interruzione delle sessioni DNS esistenti. | - |
