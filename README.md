@@ -56,6 +56,8 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
 | **RGFM1** | G | F | M | - | The system must execute static routing of IPv4/IPv6 packets between distinct logical and physical interfaces. | - |
 | **RGFM1.1** | G | F | M | - | The system must support address translation via Source NAT (Masquerading) and Destination NAT (Port Forwarding). | - |
+| **RGFM1.2** | G | F | M | Interoperability | The system must support IPv6 stateless address autoconfiguration (SLAAC) and Neighbor Discovery Protocol (NDP) on all configured interfaces. | - |
+| **RGFM1.3** | G | F | M | Interoperability | The system must implement NAT64 translation to allow IPv6-only internal clients to reach IPv4-only external destinations, mapping traffic through a configurable NAT64 prefix (default: 64:ff9b::/96). | - |
 | **RUFM2** | U | F | M | Flexibility | The user interface must allow the creation of security policies (policy management) based on the combination of Source Interface and Destination Interface. | - |
 | **RUFM2.1** | U | F | M | Usability / Security | The Web UI must provide an interface to visualize and create firewall rules based on "Source Interface Zone" and "Destination Interface Zone". | - |
 | **RUFM2.2** | U | F | M | Usability | The security policy editor in the Web UI must enforce the entry of mandatory fields: Source Int., Destination Int., Source/Destination IP/Subnet, Protocol (TCP/UDP/ICMP), Destination Port, and Action (Accept/Drop). | - |
@@ -65,12 +67,14 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 | **RGFM5** | G | F | M | Interoperability | The system must integrate an internal DHCP server for the dynamic allocation of IP addresses and network parameters across configured LAN segments. | - |
 | **RGFM5.1** | G | F | M | Interoperability | The internal DHCP server must allow lease duration configuration and static IP binding based on the client's MAC address. | - |
 | **RGFM5.2** | G | F | M | Reliability | The DHCP server must support simultaneous independent pools isolated per configured VLAN interface. | - |
+| **RGFM1.3** | G | F | M | Interoperability | The system must support DHCPv6 with prefix delegation (PD) to assign IPv6 prefixes to downstream LAN segments. | - |
 | **RGFM6** | G | F | M | Interoperability | The system must integrate a local DNS server/forwarder for name resolution of internal clients. | - |
 | **RGFM6.1** | G | F | M | Interoperability | The local DNS forwarder must intercept port 53 traffic on local segments, cache successful queries, and forward unresolved requests to upstream DNS servers defined in the configuration. | - |
 | **RGFM6.2** | G | F | M | Security | The local DNS server must support local hostname resolution mapping names defined in the static DHCP bindings table. | - |
 | **RGFS6.3** | G | F | S | Interoperability / Security | The system must allow switching the internal DNS engine from a standard Forwarder to a full Recursive DNS Server (e.g., via an integrated Unbound instance) via the YAML configuration file. | - |
 | **RGFS6.4** | G | F | S | Security | When in Recursive mode, the local DNS engine must resolve queries by directly traversing the global DNS root hints down to authoritative nameservers, bypassing upstream ISP resolvers. | - |
 | **RGFS6.5** | G | F | S | Integrity | The Recursive DNS engine must enforce validation of DNS Security Extensions (DNSSEC) for 100% of traversing queries, dropping unauthenticated or tampered responses. | - |
+| **RGFM6.6** | G | F | M | Interoperability | The system must integrate a DNS64 function that synthesizes AAAA records from A records for IPv4-only destinations, operating in conjunction with the NAT64 translation layer defined in RGFM1.4. | - |
 | **RGNM7** | G | N | M | Reliability / Integrity | Operating system and firewall application updates must be atomic (A/B system update), ensuring an automatic and transparent rollback to the previous state in case of a boot failure. | - |
 | **RGFS8** | G | F | S | Maintainability | The entire state and configuration of the firewall must be fully defined, importable, and exportable via structured YAML files. | - |
 | **RGFS8.1** | G | F | S | Maintainability | The YAML configuration file must validate against a strict schema before execution, rejecting any syntax or schema violation with an error log. | - |
