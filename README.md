@@ -56,8 +56,8 @@ Requirements will be identified by R followed by the scope (U, G), then by the t
 
 ## Requirements Table (Sorted by Progressive Index)
 
-| ID | Scope | Type | Priority | Quality Characteristic | Requirement Description (Atomic & Verifiable) | Verification |
-| --- | --- | --- | --- | --- | --- | --- |
+| ID        | Scope | Type | Priority | Quality Characteristic         | Requirement Description (Atomic & Verifiable)                                                                                                                                                                                                  | Verification |
+| --------- | ----- | ---- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | RGFM1     | G     | F    | M        | \-                             | The system must execute static routing of packets                                                                                                                                                                                              |              |
 | RGFM1.1   | G     | F    | M        | \-                             | The system must execute static routing of IPv4 packets between distinct physical interfaces.                                                                                                                                                   |              |
 | RGFM1.2   | G     | F    | M        | \-                             | The system must execute static routing of IPv4 packets between distinct logical interfaces.                                                                                                                                                    |              |
